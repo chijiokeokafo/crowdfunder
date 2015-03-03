@@ -1,4 +1,19 @@
 <h1>WELCOME TO CROWDFUNDER</h1>
 
 
+
 <%= link_to "| Add a New Project |", "/projects/new" %>
+
+
+<div id="projects">
+  <ul>
+	<% @projects.each do |p| %>
+	<li><%= link_to(p) do %>
+  		<%= p.title %>
+  		<%= p.funding_goal %>
+		<% end %>
+ 	<% end%>
+ 	</li>
+
+</ul>
+</div>

@@ -1,0 +1,5 @@
+<li><%= link_to(project) do %>
+		<p><%= project.title %> - <%= project.funding_goal %> </p>			
+<% end %>
+<p><%= truncate(project.description, length: 100) %></p>
+
