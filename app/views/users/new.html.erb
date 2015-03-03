@@ -1,6 +1,16 @@
 <h1>Sign up!</h1>
 
 <%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<div id="errors">
+			<h2><%= pluralize(@user.errors.count, "error") %> Prohibited you from creating a user</h2>
+			<ul>
+				<% @user.errors.full_messages.each do |m| %>
+				<li><%= m %></li>
+			</ul>
+			<% end %>
+		</div>
+		<% end %>
 	<div class="feild">
 		<%= f.label :first_name %>
 		<%= f.text_field :first_name %>
