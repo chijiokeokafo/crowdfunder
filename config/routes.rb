@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   resources :projects
   resources :users
 
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  resources :sessions 
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
