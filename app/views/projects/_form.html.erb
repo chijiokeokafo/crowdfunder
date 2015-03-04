@@ -33,7 +33,7 @@
 </div>
   <div class="field">
   <%= f.label :category %><br />
-  <%= f.text_field :category %>
+  <%= f.select :category, Project.available_categories %>
 </div>
   <div class="actions">
     <%= f.submit %>
