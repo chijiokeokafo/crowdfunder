@@ -11,6 +11,7 @@
     </div>
   <% end %>  -->
 
+
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -25,11 +26,11 @@
   </div>
   <div class="field">
     <%= f.label :start_date %><br />
-    <%= f.number_field :start_date %>
+    <%= f.date_field :start_date %>
   </div>
   <div class="field">
   <%= f.label :end_date %><br />
-  <%= f.number_field :end_date %>
+  <%= f.select :end_date, days_in_future_for_select(10) %>
 </div>
   <div class="actions">
     <%= f.submit %>
