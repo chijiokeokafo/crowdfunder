@@ -32,6 +32,10 @@
   <%= f.label :end_date %><br />
   <%= f.select :end_date, days_in_future_for_select(10) %>
 </div>
+  <div class="field">
+  <%= f.label :category %><br />
+  <%= f.select :category, Project.available_categories %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
