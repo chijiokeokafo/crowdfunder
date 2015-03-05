@@ -10,8 +10,15 @@
 <p> </p>
 <p>Campaign End Date</p>
 <p><%= @project.end_date %></p>
+<p></p>
+<p>Category</p>
+<p><%= @project.category %></p>
 
 <h2><%= @project.rewards %></h2>
+
+
+
+<p><%= link_to "Delete this Project", @product, method: :delete, data: {confirm: "Are you sure you want to delete this project?"}  %></p>
 
 
 
