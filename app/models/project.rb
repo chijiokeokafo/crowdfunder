@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
   	return sum
   end
 
+  
+
+
+
   def self.available_categories
   	%w(Music Games Household Video Art Outdoors Technology Food )
   end

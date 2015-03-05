@@ -3,7 +3,41 @@
 <p>We need to raise: $<%= @project.funding_goal %> CAD</p>
 <p><%= @project.description %></p>
 <p>Days Left <%= time_ago_in_words(@project.end_date) %></p>
-<p>Amount raised to date <%=  @project.amount_raised %></p>
+<p>Amount raised to date <%=  number_to_currency(@project.amount_raised) %></p>
+
+<h2>Backers of Project</h2>
+<ol>
+<% @project.backers.each do |backer|%>
+
+	<li><%= backer.first_name %></li>
+		
+	
+
+<% end %>
+</ol>
 <div id="pledge">
 	
 </div>
+
+<% if @pledge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pledge.errors.count, "error") %> prohibited this pledge from being saved:</h2>
+
+      <ul>
+      <% @pledge.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for([@project, @pledge]) do |f| %>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+    <div class="actions">
+    <%= f.submit value: "Donate" %>
+  </div>
+<% end %>
+
