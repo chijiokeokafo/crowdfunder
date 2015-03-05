@@ -5,7 +5,12 @@ class ProjectsController < ApplicationController
     else
 		  @projects = Project.all
 		render
-	end
+	  end
+
+    if request.xhr?
+      render @products
+    end
+  end
 
 	def show
 		@project = Project.find(params[:id])
