@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :start_date %><br />
-    <%= f.number_field :start_date %>
+    <%= f.date_field :start_date %>
   </div>
   <div class="field">
   <%= f.label :end_date %><br />
-  <%= f.number_field :end_date %>
+  <%= f.date_field :end_date %>
   </div>
     <div class="field">
     <%= f.label :category %><br />
@@ -39,23 +39,22 @@
   <h3>Create your 3 pledge rewards</h3>
     <%= fields_for :rewards do |reward_fields| %>
       <div id='reward1'>
-      <h4>Describe your top reward here</h4>
+      <h4>5$ reward</h4>
         <%= reward_fields.label :description %>
         <%= reward_fields.text_area :description %>
       </div>
       <div id='reward2'>
-      <h4>Describe your second reward here</h4>
+      <h4>50$ reward</h4>
         <%= reward_fields.label :description %>
         <%= reward_fields.text_area :description %>
       </div>
       <div id='reward3'>
-      <h4>Describe your third reward here</h4>
+      <h4>500$ reward</h4>
         <%= reward_fields.label :description %>
         <%= reward_fields.text_area :description %>
       </div>
     <% end %>
   </div>
-  <h4>---------------</h4>
   <div class="actions">
     <%= f.submit %>
   </div>

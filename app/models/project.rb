@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: 'User' 	
 
   validates :title, :description, :funding_goal, :start_date, :end_date, presence: true
+  validates :funding_goal, numericality: { only_integer: true }
+
 
   def self.available_categories
   	%w(Music Games Household Video Art Outdoors Technology Food )
