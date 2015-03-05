@@ -14,7 +14,11 @@
 <p>Category</p>
 <p><%= @project.category %></p>
 
-<h2><%= @project.rewards %></h2>
+<p><%= @project.rewards.each do |reward| %></p>
+	<%= reward.description %>
+<% end %>
+
+
 
 
 
