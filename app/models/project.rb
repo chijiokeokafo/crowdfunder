@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   has_many :backers, through: :pledges, class_name: 'User'
   belongs_to :owner, class_name: 'User' 	
 
+  validates :title, :description, :funding_goal, :start_date, :end_date, presence: true
+
   def self.available_categories
   	%w(Music Games Household Video Art Outdoors Technology Food )
   end

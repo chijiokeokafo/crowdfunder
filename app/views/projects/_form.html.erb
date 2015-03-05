@@ -1,5 +1,5 @@
 <%= form_for(@project) do |f| %>
-<!--   <% if @project.errors.any? %>
+  <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this product from being saved:</h2>
 
@@ -9,7 +9,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>  -->
+  <% end %> 
 
   <div class="field">
     <%= f.label :title %><br />
@@ -30,11 +30,32 @@
   <div class="field">
   <%= f.label :end_date %><br />
   <%= f.number_field :end_date %>
-</div>
-  <div class="field">
-  <%= f.label :category %><br />
-  <%= f.select :category, Project.available_categories %>
-</div>
+  </div>
+    <div class="field">
+    <%= f.label :category %><br />
+    <%= f.select :category, Project.available_categories %>
+  </div>
+  <div id="rewards">
+  <h3>Create your 3 pledge rewards</h3>
+    <%= fields_for :rewards do |reward_fields| %>
+      <div id='reward1'>
+      <h4>Describe your top reward here</h4>
+        <%= reward_fields.label :description %>
+        <%= reward_fields.text_area :description %>
+      </div>
+      <div id='reward2'>
+      <h4>Describe your second reward here</h4>
+        <%= reward_fields.label :description %>
+        <%= reward_fields.text_area :description %>
+      </div>
+      <div id='reward3'>
+      <h4>Describe your third reward here</h4>
+        <%= reward_fields.label :description %>
+        <%= reward_fields.text_area :description %>
+      </div>
+    <% end %>
+  </div>
+  <h4>---------------</h4>
   <div class="actions">
     <%= f.submit %>
   </div>
