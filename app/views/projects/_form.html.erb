@@ -2,7 +2,6 @@
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this product from being saved:</h2>
-
       <ul>
       <% @project.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -35,9 +34,11 @@
     <%= f.label :category %><br />
     <%= f.select :category, Project.available_categories %>
   </div>
-  <div id="rewards">
+  
   <h3>Create your 3 pledge rewards</h3>
-    <%= fields_for :rewards do |reward_fields| %>
+
+  <div id="rewards">
+    <%= f.fields_for :rewards do |reward_fields| %>
       <div id='reward1'>
       <h4>5$ reward</h4>
         <%= reward_fields.label :description %>
