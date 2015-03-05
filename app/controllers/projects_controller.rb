@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
 	def index
     @projects = if params[:search]
-      Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+      Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
     else
 		  Project.all
-		render
 	  end
 
     respond_to do |format|

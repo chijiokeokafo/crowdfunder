@@ -3,6 +3,6 @@ $(document).on('ready page:load', function() {
     event.preventDefault();
     var searchValue = $('#search').val();
 
- $.getScript('/products?search=' + searchValue);
+   $.getScript('/projects?search=' + searchValue);
   });
 });
