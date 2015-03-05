@@ -4,6 +4,11 @@
 
 <%= link_to "| Add a New Project |", "/projects/new" %>
 
+<%= form_tag projects_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 
 <div id="projects">
   <ul>
