@@ -2,7 +2,8 @@
 
 <p>We need to raise: $<%= @project.funding_goal %> CAD</p>
 <p><%= @project.description %></p>
-
+<p>Days Left <%= time_ago_in_words(@project.end_date) %></p>
+<p>Amount raised to date <%=  @project.amount_raised %></p>
 <div id="pledge">
 	
 </div>

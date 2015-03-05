@@ -6,11 +6,13 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
+
 	end
 
 	def new
 		if current_user
 			@project = Project.new
+			@project.start_date = Date.today
 		else
 			redirect_to login_path
 		end
