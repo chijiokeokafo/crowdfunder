@@ -1,8 +1,18 @@
 <h1>Currently viewing "<%= @project.title %>"</h1>
 
-<p>We need to raise: $<%= @project.funding_goal %> CAD</p>
-<p><%= @project.description %></p>
 
-<p><%= @project.rewards %></p>
+<p><%= @project.description %></p>
+<p> </p>
+<p>Goal</p>
+<p>$<%= @project.funding_goal %></p>
+<p>Campaign Start Date</p>
+<p><%= @project.start_date %></p>
+<p> </p>
+<p>Campaign End Date</p>
+<p><%= @project.end_date %></p>
+
+<h2><%= @project.rewards %></h2>
+
+
 
 

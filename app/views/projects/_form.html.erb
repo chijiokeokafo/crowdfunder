@@ -34,23 +34,12 @@
     <%= f.label :category %><br />
     <%= f.select :category, Project.available_categories %>
   </div>
-  
+
   <h3>Create your 3 pledge rewards</h3>
 
   <div id="rewards">
     <%= f.fields_for :rewards do |reward_fields| %>
-      <div id='reward1'>
-      <h4>5$ reward</h4>
-        <%= reward_fields.label :description %>
-        <%= reward_fields.text_area :description %>
-      </div>
-      <div id='reward2'>
-      <h4>50$ reward</h4>
-        <%= reward_fields.label :description %>
-        <%= reward_fields.text_area :description %>
-      </div>
-      <div id='reward3'>
-      <h4>500$ reward</h4>
+      <div>
         <%= reward_fields.label :description %>
         <%= reward_fields.text_area :description %>
       </div>

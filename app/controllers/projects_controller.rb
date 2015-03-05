@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
-		@project.rewards.build
+		3.times { @project.rewards.build }
 	end
 
 	def create
@@ -21,6 +21,11 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
+
+  def destroy
+  	@project = Product.find(params[:id])
+  	@project.destroy
+  	redirect_to projects_path
   end
 
 
