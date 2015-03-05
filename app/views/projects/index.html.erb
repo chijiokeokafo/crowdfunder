@@ -6,6 +6,7 @@
 
 <%= form_tag projects_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
+  <div id="autocomplete">results</div>
   <%= submit_tag "Search" %>
 <% end %>
 
