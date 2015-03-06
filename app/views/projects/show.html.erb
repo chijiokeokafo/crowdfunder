@@ -4,8 +4,8 @@
 <p>Days Left <%= time_ago_in_words(@project.end_date) %></p>
 <p>Amount raised to date <%=  number_to_currency(@project.amount_raised) %></p>
 
-<h2>Backers of this Project</h2>
-<ol>
+<h2>Backers of Project</h2>
+<ol id="backers">
 <% @project.backers.each do |backer|%>
 
 	<li><%= backer.first_name %></li>
@@ -30,10 +30,11 @@
     </div>
 <% end %>
 
-<%= form_for([@project, @pledge]) do |f| %>
+<%= form_for([@project, @pledge], remote: true) do |f| %>
   <div class="field">
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
+
   </div>
     <div class="actions">
     <%= f.submit value: "Donate" %>

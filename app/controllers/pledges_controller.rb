@@ -8,17 +8,20 @@ class PledgesController < ApplicationController
 		@pledge.project = @project
 		@pledge.backer = current_user
 
-		if @pledge.save
-			redirect_to project_path(@project) # "/projects/#{@project.id}"
-		else
-			render "projects/show"
+		respond_to do |format|
+			if @pledge.save
+				format.html { redirect_to project_path(@project) }
+				format.js {}
+			else
+				format.html { render 'new'}
+				format.js
+			end																							 
+
 		end
 	end
 
 	private
 	def pledge_params
-		params.require(:pledge).permit(:amount)
+		params.require(:pledge).permit(:amount, :project_id, :backer_id)
 	end
-
-
 end

@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
   	return sum
   end
 
+  def project_funded
+  end
+
+
   
 
 
