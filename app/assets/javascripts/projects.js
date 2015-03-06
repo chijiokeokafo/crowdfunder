@@ -8,7 +8,9 @@ $(document).on('ready page:load', function() {
 
   $('#search').on("input", function(){
     var field = $(this)
-    $.getScript("?search="+field.val()+"&autocomplete=true")
+    $.get("?search="+field.val()+"&autocomplete=true", function(data){
+      $("#autocomplete").html(data)
+    });
     // $("#autocomplete").text(field.val())
   });
 });

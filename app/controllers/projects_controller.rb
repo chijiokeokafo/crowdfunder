@@ -7,14 +7,15 @@ class ProjectsController < ApplicationController
 	  end
 
     respond_to do |format|
-      format.html
-      format.js do
+      format.html do
         if params[:autocomplete]
+          @projects = @projects.limit(10)
           render partial: "autocomplete"
         else
           render
         end
       end
+      format.js
     end
   end
 
