@@ -1,10 +1,14 @@
 <h1>Currently viewing "<%= @project.title %>"</h1>
 <p>We need to raise: $<%= @project.funding_goal %> CAD</p>
+<p>Category: <%= @project.category %></p>
 <p><%= @project.description %></p>
-<p>Days Left <%= time_ago_in_words(@project.end_date) %></p>
+<p>Time Left <%= time_ago_in_words(@project.end_date) %></p>
 <p>Amount raised to date <%=  number_to_currency(@project.amount_raised) %></p>
 
-<h2>Backers of Project</h2>
+<h2>Rewards for this Project</h2>
+<%= render partial: 'reward', collection: @project.rewards %>
+
+<h2>Backers of this Project</h2>
 <ol id="backers">
 <% @project.backers.each do |backer|%>
 

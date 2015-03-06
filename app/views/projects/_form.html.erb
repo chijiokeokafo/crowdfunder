@@ -31,11 +31,15 @@
   <div class="field">
   <%= f.label :end_date %><br />
   <%= f.date_field :end_date %>
-</div>
-  <div class="field">
-  <%= f.label :category %><br />
-  <%= f.select :category, Project.available_categories %>
-</div>
+  </div>
+    <div class="field">
+    <%= f.label :category %><br />
+    <%= f.select :category, Project.available_categories %>
+  </div>
+  <h4>Pledge Rewards</h4>
+  <div id="rewards">
+    <%= link_to_add_association 'Add a Reward', f, :rewards %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

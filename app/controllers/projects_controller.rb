@@ -28,7 +28,9 @@ class ProjectsController < ApplicationController
 	def new
 		if current_user
 			@project = Project.new
+			3.times { @project.rewards.build }
 			@project.start_date = Date.today
+
 		else
 			redirect_to login_path
 		end
@@ -53,7 +55,14 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :description, :funding_goal, :start_date, :end_date, :category)
+		params.require(:project).permit(
+			:title,
+			:description,
+			:funding_goal,
+			:start_date,
+			:end_date,
+			:category,
+			rewards_attributes: [:description, :amount])
 	end
 end
 
