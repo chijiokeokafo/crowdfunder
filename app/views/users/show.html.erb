@@ -1,1 +1,18 @@
 <h1>Hello, welcome to your profile page!</h1>
+
+<h1>Your projects</h1>
+
+<li>
+	<% @user.owned_projects.each do |p| %>
+		<li><%= p.title %></li>
+	<% end %>
+</li>
+
+
+<h1>Projects you've backed</h1>
+
+<li>
+	<% @user.projects.each do |p| %>
+		<li><%= p.title %></li>
+	<% end %>
+</li>

@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   has_many :rewards, through: :pledges, source: :backer
   has_many :projects, through: :pledges
 
-
   validates :password, length: { minimum: 8 }
   validates :password, confirmation: true
   validates :email, uniqueness: true

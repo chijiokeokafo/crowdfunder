@@ -16,6 +16,9 @@
 	<%= link_to "Log in", login_path %> or <%= link_to "Sign up", signup_path %>
 	<% end %>
 </p>
-<p><%= link_to "| Home |", projects_path %></p>
+<p>
+	|&nbsp;<%= link_to "Home", projects_path %>&nbsp;|&nbsp;
+	<%= link_to "Profile", profile_path if current_user %>&nbsp;|
+</p>
 </body>
 </html>
