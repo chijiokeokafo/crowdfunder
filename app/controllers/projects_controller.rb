@@ -1,13 +1,20 @@
 class ProjectsController < ApplicationController
 	def index
-    @projects = if params[:search]
-      Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+    if params[:search]
+      @projects = Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
     else
-		  Project.all
+		  @projects = Project.all
 	  end
 
     respond_to do |format|
-      format.html
+      format.html do
+        if params[:autocomplete]
+          @projects = @projects.limit(10)
+          render partial: "autocomplete"
+        else
+          render
+        end
+      end
       format.js
     end
   end

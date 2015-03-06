@@ -5,4 +5,12 @@ $(document).on('ready page:load', function() {
 
    $.getScript('/projects?search=' + searchValue);
   });
+
+  $('#search').on("input", function(){
+    var field = $(this)
+    $.get("?search="+field.val()+"&autocomplete=true", function(data){
+      $("#autocomplete").html(data)
+    });
+    // $("#autocomplete").text(field.val())
+  });
 });
