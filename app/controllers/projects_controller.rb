@@ -28,7 +28,9 @@ class ProjectsController < ApplicationController
 	def new
 		if current_user
 			@project = Project.new
+			3.times { @project.rewards.build }
 			@project.start_date = Date.today
+
 		else
 			redirect_to login_path
 		end
@@ -37,7 +39,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		
-		if @project.save
+		if @project.save and @project.rewards.save
       redirect_to projects_url
     else
       render :new
