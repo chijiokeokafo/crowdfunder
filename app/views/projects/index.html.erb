@@ -12,13 +12,13 @@
 
 
 <div id="projects">
-  <ul>
-	<% @projects.each do |p| %>
-	<li><%= link_to(p) do %>
-  		<%= p.title %>
-		<% end %>
- 	<% end%>
- 	</li>
-
-</ul>
+  <ul class="projects-list">
+		<% @projects.each do |p| %>
+			<li>
+				<%= link_to(p) do %>
+		  		<%= p.title %>
+				<% end %>
+		 	</li>
+	 	<% end%>
+	</ul>
 </div>
